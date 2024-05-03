@@ -1,8 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>URL</key>
-	<string>https://github.com/ucsb-cs156-s24/team02-s24-5pm-5/blob/main/src/main/java/edu/ucsb/cs156/example/entities/RecommendationRequest.java</string>
-</dict>
-</plist>
+package edu.ucsb.cs156.example.entities;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Entity(name = "recommendationrequest")
+public class RecommendationRequest {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
+
+  private String requesterEmail;
+  private String professorEmail;
+  private String explanation;
+  private LocalDateTime dateRequested;
+  private LocalDateTime dateNeeded;
+  private boolean done;
+}
