@@ -5,7 +5,7 @@ import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import { articlesFixtures } from "fixtures/articlesFixtures";
 import { rest } from "msw";
 
-import ArticlesIndexPage from "main/pages/Article/ArticlesIndexPage";
+import ArticlesIndexPage from "main/pages/Articles/ArticlesIndexPage";
 
 export default {
     title: 'pages/Articles/ArticlesIndexPage',
