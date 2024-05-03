@@ -29,7 +29,7 @@ describe("PlaceholderCreatePage tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <PlaceholderCreatePage />
+                    <ArticlesCreatePage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
