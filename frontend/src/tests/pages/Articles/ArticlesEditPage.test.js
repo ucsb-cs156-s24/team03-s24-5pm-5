@@ -127,6 +127,8 @@ describe("ArticlesEditPage tests", () => {
             expect(titleField).toHaveValue("Article 17");
             expect(urlField).toHaveValue("http://example.com/17");
             expect(explanationField).toHaveValue("Explanation 17");
+            expect(emailField).toHaveValue("e@gmail.com`");
+            expect(dateAddedField).toHaveValue("2022-03-14T15:00");
             expect(submitButton).toBeInTheDocument();
         });
 
