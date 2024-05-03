@@ -5,7 +5,7 @@ import { currentUserFixtures } from 'fixtures/currentUserFixtures';
 import { rest } from "msw";
 
 export default {
-    title: 'components/Articles/AritclesTable',
+    title: 'components/Articles/ArticlesTable',
     component: ArticlesTable
 };
 

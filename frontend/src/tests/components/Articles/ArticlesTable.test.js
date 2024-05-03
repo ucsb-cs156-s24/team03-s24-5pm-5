@@ -4,8 +4,6 @@ import ArticlesTable from "main/components/Articles/ArticlesTable"
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
-import ArticlesTable from "main/components/Articles/ArticlesTable";
-import { articlesFixtures } from "fixtures/articlesFixtures";
 
 
 const mockedNavigate = jest.fn();
