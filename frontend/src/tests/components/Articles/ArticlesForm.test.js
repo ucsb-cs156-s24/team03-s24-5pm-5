@@ -32,7 +32,7 @@ describe("ArticlesForm tests", () => {
 
         render(
             <Router  >
-                <ArticlesForm initialContents={articlesFixtures.oneArticle} />
+                <ArticlesForm initialContents={articlesFixtures.oneArticle[0]} />
             </Router>
         );
         await screen.findByTestId(/ArticlesForm-id/);
