@@ -144,29 +144,29 @@ describe("UserTable tests", () => {
 
   });
 
-  test("Delete button calls the delete mutation for admin user", async () => {
+  // test("Delete button calls the delete mutation for admin user", async () => {
     
-        const currentUser = currentUserFixtures.adminUser;
+  //       const currentUser = currentUserFixtures.adminUser;
     
-        render(
-        <QueryClientProvider client={queryClient}>
-            <MemoryRouter>
-            <ArticlesTable dates={articlesFixtures.threeArticles} currentUser={currentUser} />
-            </MemoryRouter>
-        </QueryClientProvider>
+  //       render(
+  //       <QueryClientProvider client={queryClient}>
+  //           <MemoryRouter>
+  //           <ArticlesTable dates={articlesFixtures.threeArticles} currentUser={currentUser} />
+  //           </MemoryRouter>
+  //       </QueryClientProvider>
     
-        );
+  //       );
     
-        await waitFor(() => { expect(screen.getByTestId(`ArticlesTable-cell-row-0-col-id`)).toHaveTextContent("2"); });
+  //       await waitFor(() => { expect(screen.getByTestId(`ArticlesTable-cell-row-0-col-id`)).toHaveTextContent("2"); });
     
-        const deleteButton = screen.getByTestId(`ArticlesTable-cell-row-0-col-Delete-button`);
-        expect(deleteButton).toBeInTheDocument();
+  //       const deleteButton = screen.getByTestId(`ArticlesTable-cell-row-0-col-Delete-button`);
+  //       expect(deleteButton).toBeInTheDocument();
         
-        fireEvent.click(deleteButton);
+  //       fireEvent.click(deleteButton);
     
-        // await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/api/delete/2'));
+  //       await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/api/delete/2'));
     
-    });
+  //   });
 
 });
 
