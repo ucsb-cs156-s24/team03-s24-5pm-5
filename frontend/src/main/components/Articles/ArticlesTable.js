@@ -11,7 +11,7 @@ export default function ArticlesTable({ dates, currentUser }) {
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/ucsbdates/edit/${cell.row.values.id}`)
+        navigate(`/articles/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
