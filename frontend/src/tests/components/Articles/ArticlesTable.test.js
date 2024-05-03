@@ -29,8 +29,8 @@ describe("UserTable tests", () => {
 
     );
 
-    const expectedHeaders = ["title", "url", "explanation", "email", "dateAdded"];
-    const expectedFields = ["title", "url", "explanation", "email", "dateAdded"];
+    const expectedHeaders = ["id", "title", "url", "explanation", "email", "dateAdded"];
+    const expectedFields = ["id", "title", "url", "explanation", "email", "dateAdded"];
     const testId = "ArticlesTable";
 
     expectedHeaders.forEach((headerText) => {
@@ -56,6 +56,8 @@ describe("UserTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("Burgers");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-email`)).toHaveTextContent("mcD@gmail.com");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-dateAdded`)).toHaveTextContent("2024-05-03T00:12:53.905Z");
+
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("4");
 
     const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).not.toBeInTheDocument();
@@ -105,6 +107,8 @@ describe("UserTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("Burgers");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-email`)).toHaveTextContent("mcD@gmail.com");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-dateAdded`)).toHaveTextContent("2024-05-03T00:12:53.905Z");
+
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("4");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
