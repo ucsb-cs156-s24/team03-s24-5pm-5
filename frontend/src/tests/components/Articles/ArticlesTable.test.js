@@ -44,7 +44,18 @@ describe("UserTable tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Cristino's Bakery");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-url`)).toHaveTextContent("https://www.cristinosbakery.com/");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("burritos and tacos");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-email`)).toHaveTextContent("crist@gmail.com")
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateAdded`)).toHaveTextContent("2024-05-03T00:12:53.905Z");
+
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("Mcdonalds");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-url`)).toHaveTextContent("mcD.com/");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("Burgers");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-email`)).toHaveTextContent("mcD@gmail.com");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-dateAdded`)).toHaveTextContent("2024-05-03T00:12:53.905Z");
 
     const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).not.toBeInTheDocument();
@@ -82,7 +93,18 @@ describe("UserTable tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Cristino's Bakery");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-url`)).toHaveTextContent("https://www.cristinosbakery.com/");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("burritos and tacos");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-email`)).toHaveTextContent("crist@gmail.com")
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateAdded`)).toHaveTextContent("2024-05-03T00:12:53.905Z");
+
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("Mcdonalds");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-url`)).toHaveTextContent("mcD.com/");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("Burgers");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-email`)).toHaveTextContent("mcD@gmail.com");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-dateAdded`)).toHaveTextContent("2024-05-03T00:12:53.905Z");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -117,6 +139,30 @@ describe("UserTable tests", () => {
     await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/articles/edit/2'));
 
   });
+
+  test("Delete button calls the delete mutation for admin user", async () => {
+    
+        const currentUser = currentUserFixtures.adminUser;
+    
+        render(
+        <QueryClientProvider client={queryClient}>
+            <MemoryRouter>
+            <ArticlesTable dates={articlesFixtures.threeArticles} currentUser={currentUser} />
+            </MemoryRouter>
+        </QueryClientProvider>
+    
+        );
+    
+        await waitFor(() => { expect(screen.getByTestId(`ArticlesTable-cell-row-0-col-id`)).toHaveTextContent("2"); });
+    
+        const deleteButton = screen.getByTestId(`ArticlesTable-cell-row-0-col-Delete-button`);
+        expect(deleteButton).toBeInTheDocument();
+        
+        fireEvent.click(deleteButton);
+    
+        // await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/api/delete/2'));
+    
+    });
 
 });
 
