@@ -43,6 +43,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                                     message: "Max length 10 characters"
                                 }
                             })}
+                            disabled={initialContents}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.orgCode?.message}
