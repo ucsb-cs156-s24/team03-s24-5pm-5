@@ -5,7 +5,7 @@ const ucsbOrganizationFixtures = {
             "orgCode": "TT",
             "orgTranslationShort": "Theta Tau",
             "orgTranslation": "Theta Tau",
-            "inactive": "false"
+            "inactive": false
         }
     ],
     threeOrganizations:
@@ -13,20 +13,20 @@ const ucsbOrganizationFixtures = {
         {
             "orgCode": "AKP",
             "orgTranslationShort": "Alpha Kapa Psi",
-            "orgTranslation": "Alpha Kapa Psi",
-            "inactive": "false"
+            "orgTranslation": "Alpha Kapa Psi fraternity",
+            "inactive": false
         },
         {
             "orgCode": "APX",
             "orgTranslationShort": "Alpha Rho Chi",
-            "orgTranslation": "Alpha Rho Chi",
-            "inactive": "false"
+            "orgTranslation": "Alpha Rho Chi fraternity",
+            "inactive": true
         },
         {
             "orgCode": "AXO",
             "orgTranslationShort": "Alpha Chi Omega",
-            "orgTranslation": "Alpha Chi Omega",
-            "inactive": "false"
+            "orgTranslation": "Alpha Chi Omega fraternity",
+            "inactive": false
         }
     ]
 };
