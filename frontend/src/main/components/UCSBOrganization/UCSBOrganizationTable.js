@@ -22,7 +22,7 @@ export default function UCSBOrganizationTable(
     // const deleteMutation = useBackendMutation(
     //     cellToAxiosParamsDelete,
     //     { onSuccess: onDeleteSuccess },
-    //     ["/api/ucsborganization/all"]
+    //     ["/api/UCSBOrganization/all"]
     // );
     // // Stryker restore all
 
