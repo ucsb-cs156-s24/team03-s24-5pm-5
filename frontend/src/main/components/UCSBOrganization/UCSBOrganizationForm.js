@@ -30,7 +30,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             <Row>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="orgCode">Organization Code</Form.Label>
+                        <Form.Label htmlFor="orgCode">orgCode</Form.Label>
                         <Form.Control
                             data-testid={testIdPrefix + "-orgCode"}
                             id="orgCode"
@@ -51,7 +51,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="orgTranslationShort">Organization Translation Short</Form.Label>
+                        <Form.Label htmlFor="orgTranslationShort">orgTranslationShort</Form.Label>
                         <Form.Control
                             data-testid={testIdPrefix + "-orgTranslationShort"}
                             id="orgTranslationShort"
@@ -73,7 +73,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Row>
             <Row>
                 <Form.Group className="mb-3" >
-                    <Form.Label htmlFor="orgTranslation">Organization Translation</Form.Label>
+                    <Form.Label htmlFor="orgTranslation">orgTranslation</Form.Label>
                     <Form.Control
                         data-testid={testIdPrefix + "-orgTranslation"}
                         id="orgTranslation"
@@ -90,14 +90,14 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Row>
             <Row>
                 <Form.Group className="mb-3" >
-                    <Form.Label htmlFor="inactive">Inactive</Form.Label>
+                    <Form.Label htmlFor="inactive">inactive</Form.Label>
                     <Form.Select
                         data-testid={testIdPrefix + "-inactive"}
                         id="inactive"
                         {...register("inactive")}
                     >
-                        <option value={true}>True</option>
-                        <option value={false}>False</option>
+                        <option value="true">True</option>
+                        <option value="false">False</option>
                     </Form.Select>
                 </Form.Group>
             </Row>

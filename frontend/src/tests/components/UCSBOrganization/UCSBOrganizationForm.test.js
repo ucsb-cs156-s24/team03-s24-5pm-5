@@ -17,10 +17,10 @@ describe("UCSBOrganizationForm tests", () => {
     const queryClient = new QueryClient();
 
     const expectedHeaders = [
-        "Organization Code",
-        "Organization Translation Short",
-        "Organization Translation",
-        "Inactive"
+        "orgCode",
+        "orgTranslationShort",
+        "orgTranslation",
+        "inactive"
     ];
     const testId = "UCSBOrganizationForm";
 
@@ -59,19 +59,19 @@ describe("UCSBOrganizationForm tests", () => {
         });
 
         expect(await screen.findByTestId(`${testId}-orgCode`)).toBeInTheDocument();
-        expect(screen.getByText(`Organization Code`)).toBeInTheDocument();
+        expect(screen.getByText(`orgCode`)).toBeInTheDocument();
         expect(screen.getByTestId(`${testId}-orgCode`)).toHaveValue("TT");
 
         expect(await screen.findByTestId(`${testId}-orgTranslationShort`)).toBeInTheDocument();
-        expect(screen.getByText(`Organization Translation Short`)).toBeInTheDocument();
+        expect(screen.getByText(`orgTranslationShort`)).toBeInTheDocument();
         expect(screen.getByTestId(`${testId}-orgTranslationShort`)).toHaveValue("Theta Tau");
 
         expect(await screen.findByTestId(`${testId}-orgTranslation`)).toBeInTheDocument();
-        expect(screen.getByText(`Organization Translation`)).toBeInTheDocument();
+        expect(screen.getByText(`orgTranslation`)).toBeInTheDocument();
         expect(screen.getByTestId(`${testId}-orgTranslation`)).toHaveValue("Theta Tau");
 
         expect(await screen.findByTestId(`${testId}-inactive`)).toBeInTheDocument();
-        expect(screen.getByText(`Inactive`)).toBeInTheDocument();
+        expect(screen.getByText(`inactive`)).toBeInTheDocument();
         expect(screen.getByTestId(`${testId}-inactive`)).toHaveValue("false");
     })
 
@@ -85,7 +85,6 @@ describe("UCSBOrganizationForm tests", () => {
         );
         expect(await screen.findByTestId(`${testId}-cancel`)).toBeInTheDocument();
         const cancelButton = screen.getByTestId(`${testId}-cancel`);
-
         fireEvent.click(cancelButton);
 
         await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith(-1));
@@ -100,8 +99,8 @@ describe("UCSBOrganizationForm tests", () => {
             </QueryClientProvider>
         );
 
-        expect(await screen.findByText(/Create/)).toBeInTheDocument();
-        const submitButton = screen.getByText(/Create/);
+        expect(await screen.findByTestId(`${testId}-submit`)).toBeInTheDocument();
+        const submitButton = screen.getByTestId(`${testId}-submit`);
         fireEvent.click(submitButton);
 
         await screen.findByText(/OrgCode is required./);
