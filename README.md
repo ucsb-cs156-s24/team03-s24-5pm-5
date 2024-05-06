@@ -8,19 +8,18 @@ TODO: Add a link to the deployed Dokku app for your team here, e.g.
 
 Deployments:
 
-* Prod: <https://team03.dokku-17.cs.ucsb.edu>
-* QA: <https://team03-qa.dokku-17.cs.ucsb.edu>
+* Prod: <https://team03.dokku-13.cs.ucsb.edu>
+* QA: <https://team03-qa.dokku-13.cs.ucsb.edu>
 
-TODO: Fill in this table with correct information. 
 
-| Table                     | Name         | Github Id |
-|---------------------------|--------------|-----------|
-| UCSBDiningCommonsMenuItem |              |           |
-| UCSBOrganization          |              |           |
-| RecommendationRequest     |              |           |
-| MenuItemReview            |              |           |
-| HelpRequest               |              |           |
-| Articles                  |              |           |
+| Table                       | Team Member  | Github Id     |
+|-----------------------------|--------------|---------------|
+| `UCSBDiningCommonsMenuItem` | Riley        | rileychou     |
+| `UCSBOrganization`          | Gen          | Ononymous     |
+| `RecommendationRequest`     | Mai          | maidang111    |
+| `MenuItemReview`            | Tejas        | tejasvissa813 |
+| `HelpRequest`               | William      | walexgreen    |
+| `Articles`                  | Tommy        | Tommygithubaccount123|
 
 Remember though, that in spite of these initial  assignments, it is still
 a team project.  Please help other team members to finish their work
