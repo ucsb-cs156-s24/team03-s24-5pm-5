@@ -81,6 +81,7 @@ function App() {
           <>
             <Route exact path="/articles" element={<ArticlesIndexPage />} />
           </>
+        )
         }
         {
           hasRole(currentUser, "ROLE_USER") && (
