@@ -6,7 +6,7 @@ import { rest } from "msw";
 import ArticlesCreatePage from "main/pages/Articles/ArticlesCreatePage";
 
 export default {
-    title: 'pages/Aricles/ArticlesCreatePage',
+    title: 'pages/Articles/ArticlesCreatePage',
     component: ArticlesCreatePage
 };
 
