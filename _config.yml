@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s24/team03-s24-5pm-5
 owner: ucsb-cs156-s24
 repo_name: team03-s24-5pm-5
-pull_requests: [{"author":{"id":"MDQ6VXNlcjM4MzkzMjM5","is_bot":false,"login":"tejasvissa813","name":""},"headRefName":"TV-MenuItemReview-fixtures","number":69,"title":"Menu Item Review Fixtures","url":"https://github.com/ucsb-cs156-s24/team03-s24-5pm-5/pull/69"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjYxMzYwOTU1","is_bot":false,"login":"rileychou","name":"Riley Chou"},"headRefName":"rc-UCSBDiningCommonsMenuItem-table","number":85,"title":"UCSBDiningCommonsMenuItems Table","url":"https://github.com/ucsb-cs156-s24/team03-s24-5pm-5/pull/85"},{"author":{"id":"MDQ6VXNlcjM4MzkzMjM5","is_bot":false,"login":"tejasvissa813","name":""},"headRefName":"TV-MenuItemReview-fixtures","number":69,"title":"Menu Item Review Fixtures","url":"https://github.com/ucsb-cs156-s24/team03-s24-5pm-5/pull/69"}]
