@@ -1,5 +1,5 @@
 const recommendationRequestFixtures = {
-    oneRecommendaitonRequest:
+    oneRecommendationRequest:
     [
       {
        "id": 1,
