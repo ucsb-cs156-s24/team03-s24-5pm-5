@@ -33,29 +33,29 @@ export default function HelpRequestTable({ dates, currentUser }) {
             accessor: 'id', // accessor is the "key" in the data
         },
         {
-            Header: 'RequesterEmail',
+            Header: 'requesterEmail',
             accessor: 'requesterEmail',
         },
         {
-            Header: 'TeamId',
+            Header: 'teamId',
             accessor: 'teamId',
         },
         {
-            Header: 'TableOrBreakoutRoom',
+            Header: 'tableOrBreakoutRoom',
             accessor: 'tableOrBreakoutRoom',
         },
         {
-            Header: 'RequestTime',
+            Header: 'requestTime',
             accessor: 'requestTime',
         },
         {
-            Header: 'Explanation',
+            Header: 'explanation',
             accessor: 'explanation',
         },
         {
-            Header: 'Solved',
+            Header: 'solved',
             accessor: 'solved',
-        },
+        }
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {

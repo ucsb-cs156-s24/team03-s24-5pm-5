@@ -1,4 +1,3 @@
-
 import React from 'react';
 import HelpRequestTable from "main/components/HelpRequest/HelpRequestTable";
 import { helpRequestFixtures } from 'fixtures/helpRequestFixtures';
@@ -25,13 +24,13 @@ Empty.args = {
 export const ThreeItemsOrdinaryUser = Template.bind({});
 
 ThreeItemsOrdinaryUser.args = {
-    dates: helpRequestFixtures.threeDates,
+    dates: helpRequestFixtures.threeHelpRequests,
     currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-    dates: helpRequestFixtures.threeDates,
+    dates: helpRequestFixtures.threeHelpRequests,
     currentUser: currentUserFixtures.adminUser,
 }
 

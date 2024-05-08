@@ -15,7 +15,7 @@ const helpRequestFixtures = {
       teamId: "team01",
       tableOrBreakoutRoom: "table",
       explanation: "Want a room",
-      solved: "fase",
+      solved: "false",
       requestTime: "2022-01-02t12:00:00",
     },
     {
