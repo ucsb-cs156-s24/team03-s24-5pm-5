@@ -1,9 +1,10 @@
-import { Button, Form, Row, Col } from 'react-bootstrap';
+import { Button, Form} from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
 function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Create" }){
 
+    // Stryker disable all
     const {
         register,
         formState: { errors },
@@ -11,10 +12,15 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
     } = useForm(
         { defaultValues: initialContents || {}, }
     );
+    // Stryker restore all
 
-    const navigate = useNavigate();
+
+    // Stryker disable next-line Regex
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+
+    
     const testIdPrefix = "MenuItemReviewForm";
+    const navigate = useNavigate();
 
     return (
 
@@ -46,7 +52,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.name?.message}
+                    {errors.itemId?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 

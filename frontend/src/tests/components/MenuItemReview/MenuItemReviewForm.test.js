@@ -25,6 +25,8 @@ describe("MenuItemReviewForm tests", () => {
         await screen.findByText(/Date Reviewed/);
         await screen.findByText(/Comments/);
 
+        expect(screen.getByText(/Create/)).toBeInTheDocument();
+
     });
 
 
@@ -38,6 +40,8 @@ describe("MenuItemReviewForm tests", () => {
         await screen.findByTestId(/MenuItemReviewForm-id/);
         expect(screen.getByText(/Stars/)).toBeInTheDocument();
         expect(screen.getByTestId(/MenuItemReviewForm-stars/)).toHaveValue("5");
+
+        expect(screen.getByText(/Create/)).toBeInTheDocument();
     });
 
 
@@ -50,11 +54,18 @@ describe("MenuItemReviewForm tests", () => {
         );
         await screen.findByTestId("MenuItemReviewForm-dateReviewed");
         const dateReviewedField = screen.getByTestId("MenuItemReviewForm-dateReviewed");
+        const starsField = screen.getByTestId("MenuItemReviewForm-stars");
         const submitButton = screen.getByTestId("MenuItemReviewForm-submit");
 
         fireEvent.change(dateReviewedField, { target: { value: 'bad-input' } });
+        fireEvent.change(starsField, { target: { value: '7' } });
+        fireEvent.click(submitButton);
+        await screen.findByText(/Maximum Rating is 5 stars/);
+
+        fireEvent.change(starsField, { target: { value: '-1' } });
         fireEvent.click(submitButton);
 
+        await screen.findByText(/Minimum Rating is 0 stars/);
         await screen.findByText(/Review Date must be entered in ISO date time format/);
     });
 
@@ -66,15 +77,16 @@ describe("MenuItemReviewForm tests", () => {
             </Router>
         );
         await screen.findByTestId("MenuItemReviewForm-submit");
+        expect(screen.getByText(/Create/)).toBeInTheDocument();
         const submitButton = screen.getByTestId("MenuItemReviewForm-submit");
 
         fireEvent.click(submitButton);
 
-        await screen.findByText(/Reviewer Email is required./);
-        //expect(screen.getByText(/Reviewer Email is required./)).toBeInTheDocument();
-        //expect(screen.getByText(/Star Rating is required./)).toBeInTheDocument();
-        //expect(screen.getByText(/Review Date is required./)).toBeInTheDocument();
-        //expect(screen.getByText(/Comments are required./)).toBeInTheDocument();
+        await screen.findByText(/itemId is required./);
+        expect(screen.getByText(/Reviewer Email is required./)).toBeInTheDocument();
+        expect(screen.getByText(/Star Rating is required./)).toBeInTheDocument();
+        expect(screen.getByText(/Review Date is required./)).toBeInTheDocument();
+        expect(screen.getByText(/Comments are required./)).toBeInTheDocument();
 
 
     });
@@ -89,7 +101,7 @@ describe("MenuItemReviewForm tests", () => {
                 <MenuItemReviewForm submitAction={mockSubmitAction} />
             </Router>
         );
-        await screen.findByTestId("MenuItemReviewForm-id");
+        await screen.findByTestId("MenuItemReviewForm-itemId");
 
         const itemIdField = screen.getByTestId("MenuItemReviewForm-itemId");
         const reviewerEmailField = screen.getByTestId("MenuItemReviewForm-reviewerEmail");
