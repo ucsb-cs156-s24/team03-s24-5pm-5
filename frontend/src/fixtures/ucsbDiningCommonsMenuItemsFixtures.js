@@ -13,7 +13,7 @@ const ucsbDiningCommonsMenuItemsFixtures = {
       station: "Entree Specials",
     },
     {
-      id: 1,
+      id: 2,
       diningCommonsCode: "ortega",
       name: "Chicken Caesar Salad",
       station: "Entrees",

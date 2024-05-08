@@ -15,6 +15,9 @@ import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
 import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage";
 import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
 
+import UCSBDiningCommonsMenuItemsIndexPage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsIndexPage";
+import UCSBDiningCommonsMenuItemsCreatePage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsCreatePage";
+import UCSBDiningCommonsMenuItemsEditPage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsEditPage";
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
@@ -28,54 +31,97 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/profile" element={<ProfilePage />} />
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && <Route exact path="/admin/users" element={<AdminUsersPage />} />
-        }
-        {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/ucsbdates" element={<UCSBDatesIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/ucsbdates/edit/:id" element={<UCSBDatesEditPage />} />
-              <Route exact path="/ucsbdates/create" element={<UCSBDatesCreatePage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/restaurants" element={<RestaurantIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/restaurants/edit/:id" element={<RestaurantEditPage />} />
-              <Route exact path="/restaurants/create" element={<RestaurantCreatePage />} />
-            </>
-          )
-        }
-         {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/placeholder" element={<PlaceholderIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/placeholder/edit/:id" element={<PlaceholderEditPage />} />
-              <Route exact path="/placeholder/create" element={<PlaceholderCreatePage />} />
-            </>
-          )
-        }
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <Route exact path="/admin/users" element={<AdminUsersPage />} />
+        )}
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route exact path="/ucsbdates" element={<UCSBDatesIndexPage />} />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/ucsbdates/edit/:id"
+              element={<UCSBDatesEditPage />}
+            />
+            <Route
+              exact
+              path="/ucsbdates/create"
+              element={<UCSBDatesCreatePage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/restaurants"
+              element={<RestaurantIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/restaurants/edit/:id"
+              element={<RestaurantEditPage />}
+            />
+            <Route
+              exact
+              path="/restaurants/create"
+              element={<RestaurantCreatePage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/placeholder"
+              element={<PlaceholderIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/placeholder/edit/:id"
+              element={<PlaceholderEditPage />}
+            />
+            <Route
+              exact
+              path="/placeholder/create"
+              element={<PlaceholderCreatePage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/diningcommonsmenuitems"
+              element={<UCSBDiningCommonsMenuItemsIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/diningcommonsmenuitems/edit/:id"
+              element={<UCSBDiningCommonsMenuItemsEditPage />}
+            />
+            <Route
+              exact
+              path="/diningcommonsmenuitems/create"
+              element={<UCSBDiningCommonsMenuItemsCreatePage />}
+            />
+          </>
+        )}
       </Routes>
     </BrowserRouter>
   );
