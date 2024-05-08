@@ -23,6 +23,13 @@ import ArticlesCreatePage from "main/pages/Articles/ArticlesCreatePage";
 import ArticlesEditPage from "main/pages/Articles/ArticlesEditPage";
 
 
+import UCSBDiningCommonsMenuItemsIndexPage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsIndexPage";
+import UCSBDiningCommonsMenuItemsCreatePage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsCreatePage";
+import UCSBDiningCommonsMenuItemsEditPage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsEditPage";
+
+
+
+
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -113,6 +120,17 @@ function App() {
             </>
           )
         }
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route exact path="/diningcommonsmenuitems" element={<UCSBDiningCommonsMenuItemsIndexPage />} />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route exact path="/diningcommonsmenuitems/edit/:id" element={<UCSBDiningCommonsMenuItemsEditPage />} />
+            <Route exact path="/diningcommonsmenuitems/create" element={<UCSBDiningCommonsMenuItemsCreatePage />} />
+          </>
+        )}
       </Routes>
     </BrowserRouter>
   );
