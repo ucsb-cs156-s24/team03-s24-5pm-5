@@ -51,30 +51,30 @@ public class HelpRequestController extends ApiController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
     public HelpRequest postHelpRequest(
-        @Parameter(name = "requesterEmail") @RequestParam String requesterEmail,
-        @Parameter(name = "teamId") @RequestParam String teamId,
-        @Parameter(name = "tableOrBreakoutRoom") @RequestParam String tableOrBreakoutRoom,
-        @Parameter(name = "explanation") @RequestParam String explanation,
-        @Parameter(name = "solved") @RequestParam boolean solved,
-        @Parameter(name = "requestTime") @RequestParam("requestTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime)
-        throws JsonProcessingException {
+            @Parameter(name = "requesterEmail") @RequestParam String requesterEmail,
+            @Parameter(name = "teamId") @RequestParam String teamId,
+            @Parameter(name = "tableOrBreakoutRoom") @RequestParam String tableOrBreakoutRoom,
+            @Parameter(name = "explanation") @RequestParam String explanation,
+            @Parameter(name = "solved") @RequestParam boolean solved,
+            @Parameter(name = "requestTime") @RequestParam("requestTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime)
+            throws JsonProcessingException {
 
-            // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-            // See: https://www.baeldung.com/spring-date-parameters
+        // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+        // See: https://www.baeldung.com/spring-date-parameters
 
-            log.info("requestTime={}", requestTime);
+        log.info("requestTime={}", requestTime);
 
-            HelpRequest helpRequest = new HelpRequest();
-            helpRequest.setRequesterEmail(requesterEmail);
-            helpRequest.setTeamId(teamId);
-            helpRequest.setTableOrBreakoutRoom(tableOrBreakoutRoom);
-            helpRequest.setExplanation(explanation);
-            helpRequest.setSolved(solved);
-            helpRequest.setRequestTime(requestTime);
+        HelpRequest helpRequest = new HelpRequest();
+        helpRequest.setRequesterEmail(requesterEmail);
+        helpRequest.setTeamId(teamId);
+        helpRequest.setTableOrBreakoutRoom(tableOrBreakoutRoom);
+        helpRequest.setExplanation(explanation);
+        helpRequest.setSolved(solved);
+        helpRequest.setRequestTime(requestTime);
 
-            HelpRequest savedHelpRequest = helpRequestRepository.save(helpRequest);
+        HelpRequest savedHelpRequest = helpRequestRepository.save(helpRequest);
 
-            return savedHelpRequest;
+        return savedHelpRequest;
     }
 
     @Operation(summary = "Get a single help request")
@@ -82,8 +82,8 @@ public class HelpRequestController extends ApiController {
     @GetMapping("")
     public HelpRequest getById(@Parameter(name = "id") @RequestParam Long id) {
         HelpRequest helpRequest = helpRequestRepository.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException(
-            HelpRequest.class, id));
+                .orElseThrow(() -> new EntityNotFoundException(
+                        HelpRequest.class, id));
 
         return helpRequest;
     }
@@ -92,10 +92,10 @@ public class HelpRequestController extends ApiController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("")
     public Object deleteHelpRequest(
-        @Parameter(name = "id") @RequestParam Long id) {
+            @Parameter(name = "id") @RequestParam Long id) {
         HelpRequest helpRequest = helpRequestRepository.findById(id)
-                                        .orElseThrow(() -> new EntityNotFoundException(
-                                                                        HelpRequest.class, id));
+                .orElseThrow(() -> new EntityNotFoundException(
+                        HelpRequest.class, id));
 
         helpRequestRepository.delete(helpRequest);
         return genericMessage("HelpRequest with id %s deleted".formatted(id));
@@ -105,12 +105,12 @@ public class HelpRequestController extends ApiController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("")
     public HelpRequest updateHelpRequest(
-        @Parameter(name = "id") @RequestParam Long id,
-        @RequestBody @Valid HelpRequest incoming) {
+            @Parameter(name = "id") @RequestParam Long id,
+            @RequestBody @Valid HelpRequest incoming) {
 
         HelpRequest helpRequest = helpRequestRepository.findById(id)
-                                        .orElseThrow(() -> new EntityNotFoundException(
-                                                                        HelpRequest.class, id));
+                .orElseThrow(() -> new EntityNotFoundException(
+                        HelpRequest.class, id));
 
         helpRequest.setRequesterEmail(incoming.getRequesterEmail());
         helpRequest.setTeamId(incoming.getTeamId());

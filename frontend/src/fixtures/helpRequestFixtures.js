@@ -1,5 +1,5 @@
 const helpRequestFixtures = {
-  oneDate: {
+  oneHelpRequest: {
     id: 1,
     requesterEmail: "test01@gmail.com",
     teamId: "team01",
@@ -8,7 +8,7 @@ const helpRequestFixtures = {
     solved: "true",
     requestTime: "2022-01-02t12:00:00",
   },
-  threeDates: [
+  threeHelpRequests: [
     {
       id: 1,
       requesterEmail: "test01@gmail.com",
@@ -30,7 +30,7 @@ const helpRequestFixtures = {
     {
       id: 3,
       requesterEmail: "test03@gmail.com",
-      teamId: "team03",
+      teamId: "team02",
       tableOrBreakoutRoom: "table",
       explanation: "Want a room",
       solved: "true",
