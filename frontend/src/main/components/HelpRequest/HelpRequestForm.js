@@ -21,14 +21,9 @@ function HelpRequestForm({
   // Note that even this complex regex may still need some tweaks
 
   // Stryker disable next-line Regex
-  const isodate_regex =
-    /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-
-  // Stryker email Regex accepts anything@anything
-  // const requesterEmail_regex = /\S@\S/;
-
-  // Stryker table or room Regex accepts any table or breakout room combo
-  // const tableOrRoom_regex = /(T|t)able|(B|b)reakout\s(R|r)oom/;
+  // TODO: Check if regex is needed
+  // const isodate_regex =
+  //   /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
 
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
@@ -36,7 +31,7 @@ function HelpRequestForm({
         {initialContents && (
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label htmlFor="id">Id</Form.Label>
+              <Form.Label htmlFor="id">Iden</Form.Label>
               <Form.Control
                 data-testid="HelpRequestForm-id"
                 id="id"
@@ -69,7 +64,7 @@ function HelpRequestForm({
 
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="teamId">teamDi</Form.Label>
+            <Form.Label htmlFor="teamId">teamId</Form.Label>
             <Form.Control
               data-testid="HelpRequestForm-teamId"
               id="teamId"
@@ -118,8 +113,7 @@ function HelpRequestForm({
               type="datetime-local"
               isInvalid={Boolean(errors.requestTime)}
               {...register("requestTime", {
-                required: true,
-                pattern: isodate_regex,
+                required: "requestTime is required.",
               })}
             />
             <Form.Control.Feedback type="invalid">

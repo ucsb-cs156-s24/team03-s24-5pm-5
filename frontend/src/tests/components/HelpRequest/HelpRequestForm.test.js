@@ -18,7 +18,7 @@ describe("HelpRequestForm tests", () => {
       </Router>
     );
     await screen.findByText(/requesterEmail/);
-    await screen.findByText(/teamDi/);
+    await screen.findByText(/teamId/);
     await screen.findByText(/tableOrBreakoutRoom/);
     await screen.findByText(/explanation/);
     await screen.findByText(/solved/);
@@ -32,7 +32,7 @@ describe("HelpRequestForm tests", () => {
       </Router>
     );
     await screen.findByTestId(/HelpRequestForm-id/);
-    expect(screen.getByText(/Id/)).toBeInTheDocument(); // TODO: getByTestId makes this work, but code coverage doesn't
+    expect(screen.getByText(/Iden/)).toBeInTheDocument(); // TODO: getByTestId makes this work, but code coverage doesn't
     expect(screen.getByTestId(/HelpRequestForm-id/)).toHaveValue("1");
   });
 
