@@ -21,9 +21,7 @@ function HelpRequestForm({
   // Note that even this complex regex may still need some tweaks
 
   // Stryker disable next-line Regex
-  // TODO: Check if regex is needed
-  // const isodate_regex =
-  //   /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+  const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
 
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
@@ -112,9 +110,7 @@ function HelpRequestForm({
               id="requestTime"
               type="datetime-local"
               isInvalid={Boolean(errors.requestTime)}
-              {...register("requestTime", {
-                required: "requestTime is required.",
-              })}
+                            {...register("requestTime", { required: true, pattern: isodate_regex })}
             />
             <Form.Control.Feedback type="invalid">
               {errors.requestTime && "requestTime is required. "}
