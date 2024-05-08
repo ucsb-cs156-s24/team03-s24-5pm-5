@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 function RecommendationRequestForm({ initialContents, submitAction, buttonLabel = "Create" }) {
 
+    // Stryker disable all
     const {
         register,
         formState: { errors },
@@ -11,10 +12,13 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
     } = useForm(
         { defaultValues: initialContents || {}, }
     );
+    // Stryker restore all
 
     const navigate = useNavigate();
     const testIdPrefix = "RecommendationRequestForm";
 
+    // Stryker disable next-line Regex
+    const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
     return (
         <Form onSubmit={handleSubmit(submitAction)}>
 
@@ -40,7 +44,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                     type="text"
                     isInvalid={Boolean(errors.requesterEmail)}
                     {...register("requesterEmail", {
-                        required: "Email is required."
+                        required: "Student email is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -56,7 +60,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                     type="text"
                     isInvalid={Boolean(errors.professorEmail)}
                     {...register("professorEmail", {
-                        required: "Email is required."
+                        required: "Professor email is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -64,6 +68,62 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                 </Form.Control.Feedback>
             </Form.Group>
 
+            <Form.Group className="mb-3" >
+                <Form.Label htmlFor="explanation">Explanation</Form.Label>
+                <Form.Control
+                    data-testid={testIdPrefix + "-explanation"}
+                    id="explanation"
+                    type="text"
+                    isInvalid={Boolean(errors.explanation)}
+                    {...register("explanation", {
+                        required: "Explanation is required."
+                    })}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.explanation?.message}
+                </Form.Control.Feedback>
+            </Form.Group>
+
+            
+            <Form.Group className="mb-3" >
+                    <Form.Label htmlFor="dateRequested">Date Requested</Form.Label>
+                    <Form.Control
+                        data-testid={testIdPrefix + "-dateRequested"}
+                        id="dateRequested"
+                        type="datetime-local"
+                        isInvalid={Boolean(errors.dateRequested)}
+                        {...register("dateRequested", { required: true, pattern: isodate_regex })}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.dateRequested && 'Starting date is required.'}
+                    </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group className="mb-3" >
+                    <Form.Label htmlFor="dateNeeded">Date Needed</Form.Label>
+                    <Form.Control
+                        data-testid={testIdPrefix + "-dateNeeded"}
+                        id="dateNeeded"
+                        type="datetime-local"
+                        isInvalid={Boolean(errors.dateNeeded)}
+                        {...register("dateNeeded", { required: true, pattern: isodate_regex })}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.dateNeeded && 'End date is required.'}
+                    </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="done">Is Done</Form.Label>
+                    <Form.Select
+                        data-testid={testIdPrefix + "-done"}
+                        id="done"
+                        isInvalid={Boolean(errors.done)}
+                    >
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </Form.Select>
+                </Form.Group>
 
             <Button
                 type="submit"
