@@ -114,11 +114,11 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Form.Label htmlFor="done">Is Done</Form.Label>
+                    <Form.Label htmlFor="isDone">Is Done</Form.Label>
                     <Form.Select
-                        data-testid={testIdPrefix + "-done"}
-                        id="done"
-                        isInvalid={Boolean(errors.done)}
+                        data-testid={testIdPrefix + "-isDone"}
+                        id="isDone"
+                        isInvalid={Boolean(errors.idDone)}
                     >
                         <option value="true">Yes</option>
                         <option value="false">No</option>

@@ -139,7 +139,7 @@ describe("Recommendation Request tests", () => {
             expect(screen.getByText(/End date is required./)).toBeInTheDocument();
         });
 
-        await screen.findByTestId("RecommendationRequestForm-done");
+        await screen.findByTestId("RecommendationRequestForm-isDone");
         fireEvent.click(submitButton);
     });
 
@@ -158,7 +158,7 @@ describe("Recommendation Request tests", () => {
         const explanation = screen.getByTestId("RecommendationRequestForm-explanation");
         const dateNeeded = screen.getByTestId("RecommendationRequestForm-dateNeeded");
         const dateRequested = screen.getByTestId("RecommendationRequestForm-dateRequested");
-        const done = screen.getByTestId("RecommendationRequestForm-done");
+        const isDone = screen.getByTestId("RecommendationRequestForm-isDone");
         const submitButton = screen.getByTestId("RecommendationRequestForm-submit");
 
         fireEvent.change(requesterEmail, { target: { value: 'student@gmail.com' } });
@@ -166,7 +166,7 @@ describe("Recommendation Request tests", () => {
         fireEvent.change(explanation, { target: { value: 'I need it'} });
         fireEvent.change(dateNeeded, { target: { value: '2022-01-02T12:00' } });
         fireEvent.change(dateRequested, { target: { value: '2022-01-02T12:00' } });
-        fireEvent.change(done, { target: { value: true } });
+        fireEvent.change(isDone, { target: { value: true } });
         fireEvent.click(submitButton);
 
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
