@@ -17,6 +17,44 @@ jest.mock('react-router-dom', () => ({
 describe("UserTable tests", () => {
   const queryClient = new QueryClient();
 
+  // test("Has the expected column headers and content for ordinary user", () => {
+  //
+  //   const currentUser = currentUserFixtures.userOnly;
+  //
+  //   render(
+  //     <QueryClientProvider client={queryClient}>
+  //       <MemoryRouter>
+  //         <HelpRequestTable dates={helpRequestFixtures.threeHelpRequests} currentUser={currentUser} />
+  //       </MemoryRouter>
+  //     </QueryClientProvider>
+  //
+  //   );
+  //
+  //   const expectedHeaders = ["id", "requesterEmail", "teamId", "tableOrBreakoutRoom", "requestTime", "explanation", "solved"];
+  //   const expectedFields = ["id", "requesterEmail", "teamId", "tableOrBreakoutRoom", "requestTime", "explanation", "solved"];
+  //   const testId = "HelpRequestTable";
+  //
+  //   expectedHeaders.forEach((headerText) => {
+  //     const header = screen.getByText(headerText);
+  //     expect(header).toBeInTheDocument();
+  //   });
+  //
+  //   expectedFields.forEach((field) => {
+  //     const header = screen.getByTestId(`${testId}-cell-row-0-col-${field}`);
+  //     expect(header).toBeInTheDocument();
+  //   });
+  //
+  //   expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+  //   expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+  //
+  //   const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
+  //   expect(editButton).not.toBeInTheDocument();
+  //
+  //   const deleteButton = screen.queryByTestId(`${testId}-cell-row-0-col-Delete-button`);
+  //   expect(deleteButton).not.toBeInTheDocument();
+  //
+  // });
+
   test("Has the expected column headers and content for ordinary user", () => {
 
     const currentUser = currentUserFixtures.userOnly;
@@ -45,7 +83,22 @@ describe("UserTable tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("test01@gmail.com");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-teamId`)).toHaveTextContent("team01");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-tableOrBreakoutRoom`)).toHaveTextContent("table");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-requestTime`)).toHaveTextContent("2022-01-02t12:00:00")
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Want a room");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-solved`)).toHaveTextContent("false");
+
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("test02@gmail.com");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-teamId`)).toHaveTextContent("team02");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-tableOrBreakoutRoom`)).toHaveTextContent("breakout room");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-requestTime`)).toHaveTextContent("2022-01-02t12:00:00")
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("Want a room");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-solved`)).toHaveTextContent("true");
+
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
 
     const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).not.toBeInTheDocument();
@@ -54,7 +107,6 @@ describe("UserTable tests", () => {
     expect(deleteButton).not.toBeInTheDocument();
 
   });
-
   test("Has the expected colum headers and content for adminUser", () => {
 
     const currentUser = currentUserFixtures.adminUser;
