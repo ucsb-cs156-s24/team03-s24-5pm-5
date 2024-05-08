@@ -14,6 +14,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
 
     const navigate = useNavigate();
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+    const testIdPrefix = "MenuItemReviewForm";
 
     return (
 
@@ -34,7 +35,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
             )}
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="itemId">itemId</Form.Label>
+                <Form.Label htmlFor="itemId">ItemId</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-itemId"}
                     id="itemId"
@@ -50,7 +51,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="ReviewerEmail">ReviewerEmail</Form.Label>
+                <Form.Label htmlFor="ReviewerEmail">Reviewer Email</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-reviewerEmail"}
                     id="reviewerEmail"
@@ -99,7 +100,8 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     {...register("dateReviewed", { required: true, pattern: isodate_regex })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.dateReviewed && 'Review Date is required'}
+                    {errors.dateReviewed && 'Review Date is required.'}
+                    {errors.dateReviewed?.type === 'pattern' && 'Review Date must be entered in ISO date time format'}
                 </Form.Control.Feedback>
             </Form.Group>
 

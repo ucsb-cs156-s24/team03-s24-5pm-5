@@ -1,5 +1,5 @@
 const menuItemReviewFixtures = {
-    oneMenuItemReview = [
+    oneMenuItemReview: [
         {
             "id": 1,
             "itemId": 1,
@@ -10,7 +10,7 @@ const menuItemReviewFixtures = {
         }
     ],
 
-    threeMenuItemReviews = [
+    threeMenuItemReviews: [
         {
             "id": 2,
             "itemId": 2,
@@ -34,7 +34,7 @@ const menuItemReviewFixtures = {
             "stars": 1,
             "dateReviewed": "2022-05-03T05:06:02",
             "comments": "************"
-        ,}
+        }
     ]
 };
 
