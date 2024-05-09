@@ -28,23 +28,24 @@ public class ArticlesWebIT extends WebTestCase {
         page.getByTestId("ArticlesForm-title").fill("Cristino's Bakery");
         page.getByTestId("ArticlesForm-url").fill("https://www.cristinosbakery.com/");
         page.getByTestId("ArticlesForm-explanation").fill("burritos and tacos");
-        page.getByTestId("Articlesform-email").fill("crist@gmail.com");
-        page.getByTestId("ArticlesForm-dateAdded").fill("2024-05-03T00:12:53.905Z");
+        page.getByTestId("ArticlesForm-email").fill("crist@gmail.com");
+        page.getByTestId("ArticlesForm-dateAdded").fill("2024-05-03T00:12");
+        // page.getByLabel("dateAdded").fill("2024-05-03T00:12");
         page.getByTestId("ArticlesForm-submit").click();
 
-        assertThat(page.getByTestId("ArticlesForm-cell-row-0-col-explanation"))
+        assertThat(page.getByTestId("ArticlesTable-cell-row-0-col-explanation"))
                 .hasText("burritos and tacos");
 
-        page.getByTestId("ArticlesForm-cell-row-0-col-Edit-button").click();
+        page.getByTestId("ArticlesTable-cell-row-0-col-Edit-button").click();
         assertThat(page.getByText("Edit Article")).isVisible();
         page.getByTestId("ArticlesForm-explanation").fill("THE BEST");
         page.getByTestId("ArticlesForm-submit").click();
 
-        assertThat(page.getByTestId("ArticlesForm-cell-row-0-col-description")).hasText("THE BEST");
+        assertThat(page.getByTestId("ArticlesTable-cell-row-0-col-explanation")).hasText("THE BEST");
 
-        page.getByTestId("ArticlesForm-cell-row-0-col-Delete-button").click();
+        page.getByTestId("ArticlesTable-cell-row-0-col-Delete-button").click();
 
-        assertThat(page.getByTestId("ArticlesForm-cell-row-0-col-name")).not().isVisible();
+        assertThat(page.getByTestId("ArticlesTable-cell-row-0-col-name")).not().isVisible();
     }
 
     @Test
