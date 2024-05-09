@@ -1,6 +1,7 @@
 
 import { render, screen } from "@testing-library/react";
-import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
+// import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
+import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
