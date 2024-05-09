@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
+import PlaceholderIndexPage from "main/pages/RecommendationRequest/RecommendationRequestIndexPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
@@ -9,7 +9,7 @@ import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 
 
-describe("HelpRequestEditPage tests", () => {
+describe("PlaceholderIndexPage tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
 
@@ -30,13 +30,16 @@ describe("HelpRequestEditPage tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <HelpRequestEditPage />
+                    <PlaceholderIndexPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
 
         // assert
-        expect(screen.getByText("Edit page not yet implemented")).toBeInTheDocument();
+        expect(screen.getByText("Index page not yet implemented")).toBeInTheDocument();
+        expect(screen.getByText("Create")).toBeInTheDocument();
+        expect(screen.getByText("Edit")).toBeInTheDocument();
     });
 
 });
+
