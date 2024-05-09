@@ -1,7 +1,5 @@
-
 import { render, screen } from "@testing-library/react";
-// import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
-import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
+import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
@@ -11,7 +9,7 @@ import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 
 
-describe("PlaceholderEditPage tests", () => {
+describe("HelpRequestEditPage tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
 
@@ -32,7 +30,7 @@ describe("PlaceholderEditPage tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <PlaceholderEditPage />
+                    <HelpRequestEditPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );

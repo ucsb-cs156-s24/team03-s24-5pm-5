@@ -1,7 +1,5 @@
-
 import { render, screen } from "@testing-library/react";
-// import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
-import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
+import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
@@ -11,7 +9,7 @@ import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 
 
-describe("PlaceholderIndexPage tests", () => {
+describe("HelpRequestIndexPage tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
 
@@ -32,7 +30,7 @@ describe("PlaceholderIndexPage tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <PlaceholderIndexPage />
+                    <HelpRequestIndexPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
