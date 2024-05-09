@@ -8,7 +8,7 @@ const recommendationRequestFixtures = {
         "explanation": "please",
         "dateRequested": "2022-01-02T12:00:00",
         "dateNeeded": "2022-02-02T12:00:00",
-        "isDone" : true   
+        "done" : true   
       }
     ],
 
@@ -21,7 +21,7 @@ const recommendationRequestFixtures = {
             "explanation": "please",
             "dateRequested": "2022-02-02T12:00:00",
             "dateNeeded": "2022-03-02T12:00:00",
-            "isDone" : true   
+            "done" : true   
         },
 
         {
@@ -31,7 +31,7 @@ const recommendationRequestFixtures = {
             "explanation": "please",
             "dateRequested": "2022-04-02T12:00:00",
             "dateNeeded": "2022-05-02T12:00:00",
-            "isDone" : true   
+            "done" : true   
         },
 
         {
@@ -41,7 +41,7 @@ const recommendationRequestFixtures = {
             "explanation": "please",
             "dateRequested": "2022-05-02T12:00:00",
             "dateNeeded": "2022-06-02T12:00:00",
-            "isDone" : true   
+            "done" : true   
         },
         
     ]

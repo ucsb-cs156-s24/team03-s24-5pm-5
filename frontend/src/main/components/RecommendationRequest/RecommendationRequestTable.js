@@ -58,7 +58,8 @@ export default function RecommendationRequestTable({ recommendationRequests, cur
 
         {
             Header: 'Is Done',
-            accessor: 'isDone',
+            accessor: 'done',
+            // Cell: ({cell:{value}}) => (value ? "Yes" : "No")
         }
     ];
 

@@ -17,7 +17,7 @@ describe("RecommendationRequestTable tests", () => {
   const queryClient = new QueryClient();
 
   const expectedHeaders = ["id", "Requester Email", "Professor Email", "Explanation", "Date Requested", "Date Needed", "Is Done"];
-  const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "isDone"];
+  const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "done"];
   const testId = "RecommendationRequestTable";
 
   test("renders empty table correctly", () => {
@@ -115,6 +115,11 @@ describe("RecommendationRequestTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("studentEmail3@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-professorEmail`)).toHaveTextContent("profEmail3@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("please");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-dateRequested`)).toHaveTextContent("2022-04-02T12:00:00");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-dateNeeded`)).toHaveTextContent("2022-05-02T12:00:00");
+    // expect(screen.getByTestId(`${testId}-cell-row-1-col-done`)).toHaveTextContent("Yes");
 
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
