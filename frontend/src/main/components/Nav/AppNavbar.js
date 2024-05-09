@@ -63,6 +63,7 @@ export default function AppNavbar({
               <>
                 <Nav.Link as={Link} to="/restaurants">Restaurants</Nav.Link>
                 <Nav.Link as={Link} to="/ucsbdates">UCSB Dates</Nav.Link>
+                <Nav.Link as={Link} to="/helprequest">Help Request</Nav.Link>
                 <Nav.Link as={Link} to="/articles">Articles</Nav.Link>
                 <Nav.Link as={Link} to="/ucsborganization">UCSB Organization</Nav.Link>
                 <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
@@ -72,6 +73,7 @@ export default function AppNavbar({
             <Nav className="ml-auto">
               {currentUser && currentUser.loggedIn ? (
                 <>
+
                   <Navbar.Text className="me-3" as={Link} to="/profile">
                     Welcome, {currentUser.root.user.email}
                   </Navbar.Text>
