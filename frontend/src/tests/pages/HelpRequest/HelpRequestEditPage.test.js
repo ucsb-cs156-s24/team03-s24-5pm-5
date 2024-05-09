@@ -40,5 +40,3 @@ describe("HelpRequestEditPage tests", () => {
     });
 
 });
-
-
