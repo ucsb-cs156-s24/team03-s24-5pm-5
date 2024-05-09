@@ -5,43 +5,43 @@ const recommendationRequestFixtures = {
        "id": 1,
         "requesterEmail": "studentEmail1@ucsb.edu",
         "professorEmail": "profEmail1@ucsb.edu",
-        "explaination": "please",
+        "explanation": "please",
         "dateRequested": "2022-01-02T12:00:00",
         "dateNeeded": "2022-02-02T12:00:00",
-        "done" : true   
+        "isDone" : true   
       }
     ],
 
-    threeRecommendationRequest:
+    threeRecommendationRequests:
     [
         {
         "id": 2,
             "requesterEmail": "studentEmail2@ucsb.edu",
             "professorEmail": "profEmail2@ucsb.edu",
-            "explaination": "please",
+            "explanation": "please",
             "dateRequested": "2022-02-02T12:00:00",
             "dateNeeded": "2022-03-02T12:00:00",
-            "done" : true   
+            "isDone" : true   
         },
 
         {
         "id": 3,
             "requesterEmail": "studentEmail3@ucsb.edu",
             "professorEmail": "profEmail3@ucsb.edu",
-            "explaination": "please",
+            "explanation": "please",
             "dateRequested": "2022-04-02T12:00:00",
             "dateNeeded": "2022-05-02T12:00:00",
-            "done" : true   
+            "isDone" : true   
         },
 
         {
         "id": 4,
             "requesterEmail": "studentEmail4@ucsb.edu",
             "professorEmail": "profEmail4@ucsb.edu",
-            "explaination": "please",
+            "explanation": "please",
             "dateRequested": "2022-05-02T12:00:00",
             "dateNeeded": "2022-06-02T12:00:00",
-            "done" : true   
+            "isDone" : true   
         },
         
     ]
