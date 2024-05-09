@@ -79,7 +79,6 @@ function App() {
             </>
           )
         }
-
         {
           hasRole(currentUser, "ROLE_ADMIN") && (
             <>
@@ -105,11 +104,6 @@ function App() {
         {
           hasRole(currentUser, "ROLE_ADMIN") && (
             <>
-       hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/helprequest" element={<HelpRequestIndexPage />} />
-              <Route exact path="/helprequest/edit/:id" element={<HelpRequestEditPage />} />
-              <Route exact path="/helprequest/create" element={<HelpRequestCreatePage />} />
               <Route exact path="/ucsborganization/edit/:id" element={<UCSBOrganizationEditPage />} />
               <Route exact path="/ucsborganization/create" element={<UCSBOrganizationCreatePage />} />
             </>
@@ -141,6 +135,21 @@ function App() {
             <Route exact path="/diningcommonsmenuitems/create" element={<UCSBDiningCommonsMenuItemsCreatePage />} />
           </>
         )}
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/helprequest" element={<HelpRequestIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/helprequest/edit/:id" element={<HelpRequestEditPage />} />
+              <Route exact path="/helprequest/create" element={<HelpRequestCreatePage />} />
+            </>
+          )
+        }
       </Routes>
     </BrowserRouter>
   );
