@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s24/team03-s24-5pm-5
 owner: ucsb-cs156-s24
 repo_name: team03-s24-5pm-5
-pull_requests: [{"author":{"id":"U_kgDOBdlAFQ","is_bot":false,"login":"maidang111","name":""},"headRefName":"MD-RecommendationRequest-pages","number":96,"title":"Added Create Pages","url":"https://github.com/ucsb-cs156-s24/team03-s24-5pm-5/pull/96"},{"author":{"id":"U_kgDOBXm5-g","is_bot":false,"login":"walexgreen","name":"William Greenwald"},"headRefName":"WG-HelpRequest-Create","number":92,"title":"wg - HelpRequest Create","url":"https://github.com/ucsb-cs156-s24/team03-s24-5pm-5/pull/92"}]
+pull_requests: [{"author":{"id":"U_kgDOBXm5-g","is_bot":false,"login":"walexgreen","name":"William Greenwald"},"headRefName":"WG-HelpRequest-Create","number":92,"title":"wg - HelpRequest Create","url":"https://github.com/ucsb-cs156-s24/team03-s24-5pm-5/pull/92"}]
