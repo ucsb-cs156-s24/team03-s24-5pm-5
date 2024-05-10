@@ -5,7 +5,7 @@ const helpRequestFixtures = {
     teamId: "team01",
     tableOrBreakoutRoom: "table",
     explanation: "Want a room",
-    solved: "true",
+    solved: true,
     requestTime: "2022-01-02t12:00:00",
   },
   threeHelpRequests: [
@@ -15,7 +15,7 @@ const helpRequestFixtures = {
       teamId: "team01",
       tableOrBreakoutRoom: "table",
       explanation: "Want a room",
-      solved: "false",
+      solved: false,
       requestTime: "2022-01-02t12:00:00",
     },
     {
@@ -24,7 +24,7 @@ const helpRequestFixtures = {
       teamId: "team02",
       tableOrBreakoutRoom: "breakout room",
       explanation: "Want a room",
-      solved: "true",
+      solved: true,
       requestTime: "2022-01-02t12:00:00",
     },
     {
@@ -33,7 +33,7 @@ const helpRequestFixtures = {
       teamId: "team03",
       tableOrBreakoutRoom: "table",
       explanation: "Want a table",
-      solved: "true",
+      solved: true,
       requestTime: "2021-01-02t12:00:00",
     },
   ],
