@@ -65,7 +65,7 @@ describe("RecommendationRequest tests", () => {
             done: true
         };
 
-        axiosMock.onPost("/api/recommendationrequest/post").reply(202, request);
+        axiosMock.onPost("/api/RecommendationRequest/post").reply(202, request);
 
         render(
             <QueryClientProvider client={queryClient}>
