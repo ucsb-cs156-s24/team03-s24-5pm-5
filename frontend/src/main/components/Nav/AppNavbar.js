@@ -69,12 +69,12 @@ export default function AppNavbar({
                 <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
                 <Nav.Link as={Link} to="/diningcommonsmenuitems">UCSB Dining</Nav.Link>
                 <Nav.Link as={Link} to="/recommendationrequest">RecommendationRequest</Nav.Link>
+                <Nav.Link as={Link} to="/menuitemreview">Menu Item Review</Nav.Link>
               </>
             )}
             <Nav className="ml-auto">
               {currentUser && currentUser.loggedIn ? (
                 <>
-
                   <Navbar.Text className="me-3" as={Link} to="/profile">
                     Welcome, {currentUser.root.user.email}
                   </Navbar.Text>
