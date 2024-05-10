@@ -83,12 +83,6 @@ public class UCSBOrganizationIT {
         @Test
         public void an_admin_user_can_post_a_new_org() throws Exception {
                 // arrange
-
-                // Restaurant restaurant1 = Restaurant.builder()
-                //                 .id(1L)
-                //                 .name("Chipotle")
-                //                 .description("Mexican")
-                //                 .build();
                 UCSBOrganization ucsbOrganization1 = UCSBOrganization.builder()
                                 .orgCode("UCSB")
                                 .orgTranslationShort("UC Santa Barbara")

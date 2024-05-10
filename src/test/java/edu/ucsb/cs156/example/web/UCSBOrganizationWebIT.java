@@ -23,25 +23,25 @@ public class UCSBOrganizationWebIT extends WebTestCase {
 
         page.getByText("UCSBOrganization").click();
 
-        page.getByText("Create Restaurant").click();
-        assertThat(page.getByText("Create New Restaurant")).isVisible();
-        page.getByTestId("RestaurantForm-name").fill("Freebirds");
-        page.getByTestId("RestaurantForm-description").fill("Build your own burrito chain");
-        page.getByTestId("RestaurantForm-submit").click();
+        page.getByText("Create UCSB Organization").click();
+        assertThat(page.getByText("Create New UCSB Organization")).isVisible();
+        // page.getByTestId("UCSBOrganizationForm-name").fill("Freebirds");
+        // page.getByTestId("UCSBOrganizationForm-description").fill("Build your own burrito chain");
+        page.getByTestId("UCSBOrganizationForm-submit").click();
 
-        assertThat(page.getByTestId("RestaurantTable-cell-row-0-col-description"))
+        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-description"))
                 .hasText("Build your own burrito chain");
 
-        page.getByTestId("RestaurantTable-cell-row-0-col-Edit-button").click();
-        assertThat(page.getByText("Edit Restaurant")).isVisible();
-        page.getByTestId("RestaurantForm-description").fill("THE BEST");
-        page.getByTestId("RestaurantForm-submit").click();
+        page.getByTestId("UCSBOrganizationTable-cell-row-0-col-Edit-button").click();
+        assertThat(page.getByText("Edit UCSB Organization")).isVisible();
+        page.getByTestId("UCSBOrganizationForm-description").fill("THE BEST");
+        page.getByTestId("UCSBOrganizationForm-submit").click();
 
-        assertThat(page.getByTestId("RestaurantTable-cell-row-0-col-description")).hasText("THE BEST");
+        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-description")).hasText("THE BEST");
 
-        page.getByTestId("RestaurantTable-cell-row-0-col-Delete-button").click();
+        page.getByTestId("UCSBOrganizationTable-cell-row-0-col-Delete-button").click();
 
-        assertThat(page.getByTestId("RestaurantTable-cell-row-0-col-name")).not().isVisible();
+        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-name")).not().isVisible();
     }
 
     @Test
