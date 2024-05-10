@@ -21,23 +21,23 @@ public class UCSBOrganizationWebIT extends WebTestCase {
     public void admin_user_can_create_edit_delete_org() throws Exception {
         setupUser(true);
 
-        page.getByText("UCSBOrganization").click();
+        page.getByText("UCSB Organization").click();
 
         page.getByText("Create UCSB Organization").click();
         assertThat(page.getByText("Create New UCSB Organization")).isVisible();
-        // page.getByTestId("UCSBOrganizationForm-name").fill("Freebirds");
-        // page.getByTestId("UCSBOrganizationForm-description").fill("Build your own burrito chain");
+        page.getByTestId("UCSBOrganizationForm-orgCode").fill("TT");
+        page.getByTestId("UCSBOrganizationForm-orgTranslation").fill("Test Translation");
+        page.getByTestId("UCSBOrganizationForm-orgTranslationShort").fill("Test");
         page.getByTestId("UCSBOrganizationForm-submit").click();
 
-        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-description"))
-                .hasText("Build your own burrito chain");
+        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-orgCode")).hasText("TT");
 
         page.getByTestId("UCSBOrganizationTable-cell-row-0-col-Edit-button").click();
         assertThat(page.getByText("Edit UCSB Organization")).isVisible();
-        page.getByTestId("UCSBOrganizationForm-description").fill("THE BEST");
+        page.getByTestId("UCSBOrganizationForm-orgTranslation").fill("Test Translation 2");
         page.getByTestId("UCSBOrganizationForm-submit").click();
 
-        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-description")).hasText("THE BEST");
+        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-orgTranslation")).hasText("Test Translation 2");
 
         page.getByTestId("UCSBOrganizationTable-cell-row-0-col-Delete-button").click();
 
@@ -45,12 +45,15 @@ public class UCSBOrganizationWebIT extends WebTestCase {
     }
 
     @Test
-    public void regular_user_cannot_create_restaurant() throws Exception {
+    public void regular_user_cannot_create_org() throws Exception {
         setupUser(false);
 
-        page.getByText("Restaurants").click();
+        // page.getByText("Restaurants").click();
+        page.getByText("UCSB Organization").click();
 
-        assertThat(page.getByText("Create Restaurant")).not().isVisible();
-        assertThat(page.getByTestId("RestaurantTable-cell-row-0-col-name")).not().isVisible();
+        // assertThat(page.getByText("Create Restaurant")).not().isVisible();
+        // assertThat(page.getByTestId("RestaurantTable-cell-row-0-col-name")).not().isVisible();
+        assertThat(page.getByText("Create UCSB Organization")).not().isVisible();
+        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-orgCode")).not().isVisible();
     }
 }
