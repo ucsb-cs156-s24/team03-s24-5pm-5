@@ -110,7 +110,10 @@ function HelpRequestForm({
               id="requestTime"
               type="datetime-local"
               isInvalid={Boolean(errors.requestTime)}
-                            {...register("requestTime", { required: true, pattern: isodate_regex })}
+              {...register("requestTime", {
+                required: true,
+                pattern: isodate_regex,
+              })}
             />
             <Form.Control.Feedback type="invalid">
               {errors.requestTime && "requestTime is required. "}
@@ -141,18 +144,14 @@ function HelpRequestForm({
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="solved">solved</Form.Label>
-            <Form.Control
-              data-testid="HelpRequestForm-solved"
+            <Form.Select
+              data-testid={"HelpRequestForm-solved"}
               id="solved"
-              type="text"
-              isInvalid={Boolean(errors.solved)}
-              {...register("solved", {
-                required: "solved is required.",
-              })}
-            />
-            <Form.Control.Feedback type="invalid">
-              {errors.solved?.message}
-            </Form.Control.Feedback>
+              isInvalid={Boolean(errors.done)}
+            >
+              <option value="true">true</option>
+              <option value="false">false</option>
+            </Form.Select>
           </Form.Group>
         </Col>
       </Row>

@@ -76,7 +76,6 @@ describe("HelpRequestForm tests", () => {
     ).toBeInTheDocument();
     expect(screen.getByText(/requestTime is required./)).toBeInTheDocument();
     expect(screen.getByText(/explanation is required./)).toBeInTheDocument();
-    expect(screen.getByText(/solved is required./)).toBeInTheDocument();
   });
 
   test("No Error messsages on good input", async () => {
@@ -113,7 +112,7 @@ describe("HelpRequestForm tests", () => {
       target: { value: "2022-01-02T12:00" },
     });
     fireEvent.change(explanationField, { target: { value: "explanation" } });
-    fireEvent.change(solvedField, { target: { value: "true" } });
+    fireEvent.change(solvedField, { target: { value: true } });
 
     fireEvent.click(submitButton);
 
@@ -132,7 +131,6 @@ describe("HelpRequestForm tests", () => {
     expect(
       screen.queryByText(/explanation is required./)
     ).not.toBeInTheDocument();
-    expect(screen.queryByText(/solved is required./)).not.toBeInTheDocument();
   });
 
   test("that navigate(-1) is called when Cancel is clicked", async () => {

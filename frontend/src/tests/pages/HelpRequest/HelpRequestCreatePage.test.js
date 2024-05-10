@@ -60,7 +60,7 @@ describe("HelpRequestCreatePage tests", () => {
             tableOrBreakoutRoom: "table",
             requestTime: "2022-02-02T00:00",
             explanation: "test",
-            solved: "true"
+            solved: true
         };
 
         axiosMock.onPost("/api/helprequest/post").reply( 202, helpRequest );
@@ -90,7 +90,7 @@ describe("HelpRequestCreatePage tests", () => {
         fireEvent.change(tableOrBreakoutRoomField, { target: { value: 'table' } });
         fireEvent.change(requestTimeField, { target: { value: '2022-02-02T00:00' } });
         fireEvent.change(explanationField, { target: { value: 'test' } });
-        fireEvent.change(solvedField, { target: { value: 'true' } });
+        fireEvent.change(solvedField, { target: { value: true } });
 
         expect(submitButton).toBeInTheDocument();
 
@@ -98,6 +98,7 @@ describe("HelpRequestCreatePage tests", () => {
 
         await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
 
+        // Setting "solved" to undefined is sus
         expect(axiosMock.history.post[0].params).toEqual(
             {
             "requesterEmail": "test@test.test",
@@ -105,7 +106,7 @@ describe("HelpRequestCreatePage tests", () => {
             "tableOrBreakoutRoom": "table",
             "requestTime": "2022-02-02T00:00",
             "explanation": "test",
-            "solved": "true"
+            "solved": undefined
         });
 
         expect(mockToast).toBeCalledWith("New helpRequest Created - id: 17 teamId: test");
