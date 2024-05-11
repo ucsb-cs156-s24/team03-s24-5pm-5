@@ -96,7 +96,7 @@ describe("UCSBDiningCommonsMenuItemsCreatePage tests", () => {
       });
 
       expect(mockToast).toBeCalledWith("New ucsbDiningCommonsMenuItems Created - id: 5 name: Caesar Salad");
-      expect(mockNavigate).toBeCalledWith({ "to": "/ucsbdiningcommonsmenuitems" });
+      expect(mockNavigate).toBeCalledWith({ "to": "/diningcommonsmenuitems" });
   });
 
 
