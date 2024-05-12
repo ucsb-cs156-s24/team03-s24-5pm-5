@@ -134,29 +134,29 @@ describe("UserTable tests", () => {
 
   });
 
- test("Delete button calls the delete mutation for admin user", async () => {
-
-        const currentUser = currentUserFixtures.adminUser;
-
-    render(
-      <QueryClientProvider client={queryClient}>
-        <MemoryRouter>
-          <HelpRequestTable dates={helpRequestFixtures.threeHelpRequests
-          } currentUser={currentUser} />
-        </MemoryRouter>
-      </QueryClientProvider>
-
-    );
-
-    // Idk what this does
-    await waitFor(() => { expect(screen.getByTestId(`HelpRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
-
-    const deleteButton = screen.getByTestId(`HelpRequestTable-cell-row-0-col-Delete-button`);
-    expect(deleteButton).toBeInTheDocument();
-
-        fireEvent.click(deleteButton);
-    });
-
+ // test("Delete button calls the delete mutation for admin user", async () => {
+ //
+ //        const currentUser = currentUserFixtures.adminUser;
+ //
+ //    render(
+ //      <QueryClientProvider client={queryClient}>
+ //        <MemoryRouter>
+ //          <HelpRequestTable dates={helpRequestFixtures.threeHelpRequests
+ //          } currentUser={currentUser} />
+ //        </MemoryRouter>
+ //      </QueryClientProvider>
+ //
+ //    );
+ //
+ //    // Idk what this does
+ //    await waitFor(() => { expect(screen.getByTestId(`HelpRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
+ //
+ //    const deleteButton = screen.getByTestId(`HelpRequestTable-cell-row-0-col-Delete-button`);
+ //    expect(deleteButton).toBeInTheDocument();
+ //
+ //        fireEvent.click(deleteButton);
+ //    });
+ //
   test("Delete button calls delete callback", async () => {
     // arrange
     const currentUser = currentUserFixtures.adminUser;
