@@ -28,6 +28,7 @@ export default function RecommendationRequestEditPage({storybook=false}) {
             id: request.id,
         },
         data: {
+            id: request.id,
             requesterEmail: request.requesterEmail,
             professorEmail: request.professorEmail,
             explanation: request.explanation,
@@ -55,7 +56,7 @@ export default function RecommendationRequestEditPage({storybook=false}) {
     }
 
     if (isSuccess && !storybook) {
-        return <Navigate to="/RecommendationRequest" />
+        return <Navigate to="/recommendationrequest" />
     }
 
     return (

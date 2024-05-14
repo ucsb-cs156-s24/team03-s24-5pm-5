@@ -118,6 +118,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                     <Form.Select
                         data-testid={testIdPrefix + "-done"}
                         id="done"
+                        {...register("done")}
                         isInvalid={Boolean(errors.done)}
                     >
                         <option value="true">Yes</option>
