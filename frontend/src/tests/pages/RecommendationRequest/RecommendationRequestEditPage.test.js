@@ -135,7 +135,7 @@ describe("RecommendationRequestEditPage tests", () => {
             await waitFor(() => expect(mockToast).toBeCalled());
             expect(mockToast).toBeCalledWith("RecommendationRequest Updated - id: 17 requesterEmail: student1@gmail.com professorEmail:professor1@gmail.com explanation: professorEmail:please");
             
-            expect(mockNavigate).toBeCalledWith({ "to": "/recommendationrequest" });
+            expect(mockNavigate).toBeCalledWith({ "to": "/RecommendationRequest" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called
             expect(axiosMock.history.put[0].params).toEqual({ id: 17 });
@@ -188,7 +188,7 @@ describe("RecommendationRequestEditPage tests", () => {
 
             await waitFor(() => expect(mockToast).toBeCalled());
             expect(mockToast).toBeCalledWith("RecommendationRequest Updated - id: 17 requesterEmail: student1@gmail.com professorEmail:professor1@gmail.com explanation: professorEmail:please");
-            expect(mockNavigate).toBeCalledWith({ "to": "/recommendationrequest" });
+            expect(mockNavigate).toBeCalledWith({ "to": "/RecommendationRequest" });
         });
 
        

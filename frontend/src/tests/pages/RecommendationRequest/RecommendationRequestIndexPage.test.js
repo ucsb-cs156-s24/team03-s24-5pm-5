@@ -59,7 +59,7 @@ describe("RecommendationRequestIndexPage tests", () => {
             expect(screen.getByText(/Create RecommendationRequest/)).toBeInTheDocument();
         });
         const button = screen.getByText(/Create RecommendationRequest/);
-        expect(button).toHaveAttribute("href", "/recommendationrequest/create");
+        expect(button).toHaveAttribute("href", "/RecommendationRequest/create");
         expect(button).toHaveAttribute("style", "float: right;");
     });
 

@@ -24,7 +24,7 @@ export default function RecommendationRequestIndexPage() {
             return (
                 <Button
                     variant="primary"
-                    href="/recommendationrequest/create"
+                    href="/RecommendationRequest/create"
                     style={{ float: "right" }}
                 >
                     Create RecommendationRequest
@@ -38,8 +38,6 @@ export default function RecommendationRequestIndexPage() {
             <div className="pt-2">
                 {createButton()}
                 <h1>RecommendationRequests</h1>
-
-
                 <RecommendationRequestTable recommendationRequests={requests} currentUser={currentUser} />
             </div>
         </BasicLayout>
