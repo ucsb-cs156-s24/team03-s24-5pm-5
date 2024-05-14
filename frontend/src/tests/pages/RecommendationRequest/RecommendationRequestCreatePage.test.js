@@ -52,7 +52,7 @@ describe("RecommendationRequest tests", () => {
         );
     });
 
-    test("on submit, makes request to backend, and redirects to /recommendationrequest", async () => {
+    test("on submit, makes request to backend, and redirects to /RecommendationRequest", async () => {
 
         const queryClient = new QueryClient();
         const request = {
@@ -65,7 +65,7 @@ describe("RecommendationRequest tests", () => {
             done: true
         };
 
-        axiosMock.onPost("/api/recommendationrequest/post").reply(202, request);
+        axiosMock.onPost("/api/RecommendationRequest/post").reply(202, request);
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -121,7 +121,7 @@ describe("RecommendationRequest tests", () => {
 
         // assert - check that the toast was called with the expected message
         expect(mockToast).toBeCalledWith("New RecommendationRequest Created - id: 1 requestEmail: student1@gmail.com professorEmail:professor1@gmail.com explanation: professorEmail:please");
-        expect(mockNavigate).toBeCalledWith({ "to": "/recommendationrequest"});
+        expect(mockNavigate).toBeCalledWith({ "to": "/RecommendationRequest"});
 
     });
 });

@@ -45,7 +45,7 @@ describe("RecommendationRequestIndexPage tests", () => {
 
     test("Renders with Create Button for admin user", async () => {
         setupAdminUser();
-        axiosMock.onGet("/api/recommendationrequest/all").reply(200, []);
+        axiosMock.onGet("/api/RecommendationRequest/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -59,13 +59,13 @@ describe("RecommendationRequestIndexPage tests", () => {
             expect(screen.getByText(/Create RecommendationRequest/)).toBeInTheDocument();
         });
         const button = screen.getByText(/Create RecommendationRequest/);
-        expect(button).toHaveAttribute("href", "/recommendationrequest/create");
+        expect(button).toHaveAttribute("href", "/RecommendationRequest/create");
         expect(button).toHaveAttribute("style", "float: right;");
     });
 
     test("renders three recommendationrequest correctly for regular user", async () => {
         setupUserOnly();
-        axiosMock.onGet("/api/recommendationrequest/all").reply(200, recommendationRequestFixtures.threeRecommendationRequests);
+        axiosMock.onGet("/api/RecommendationRequest/all").reply(200, recommendationRequestFixtures.threeRecommendationRequests);
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -108,7 +108,7 @@ describe("RecommendationRequestIndexPage tests", () => {
     test("renders empty table when backend unavailable, user only", async () => {
         setupUserOnly();
 
-        axiosMock.onGet("/api/recommendationrequest/all").timeout();
+        axiosMock.onGet("/api/RecommendationRequest/all").timeout();
 
         const restoreConsole = mockConsole();
 
@@ -123,7 +123,7 @@ describe("RecommendationRequestIndexPage tests", () => {
         await waitFor(() => { expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(1); });
         
         const errorMessage = console.error.mock.calls[0][0];
-        expect(errorMessage).toMatch("Error communicating with backend via GET on /api/recommendationrequest/all");
+        expect(errorMessage).toMatch("Error communicating with backend via GET on /api/RecommendationRequest/all");
         restoreConsole();
 
     });
@@ -131,8 +131,8 @@ describe("RecommendationRequestIndexPage tests", () => {
     test("what happens when you click delete, admin", async () => {
         setupAdminUser();
 
-        axiosMock.onGet("/api/recommendationrequest/all").reply(200, recommendationRequestFixtures.threeRecommendationRequests);
-        axiosMock.onDelete("/api/recommendationrequest").reply(200, "RecommendationRequest with id 1 was deleted");
+        axiosMock.onGet("/api/RecommendationRequest/all").reply(200, recommendationRequestFixtures.threeRecommendationRequests);
+        axiosMock.onDelete("/api/RecommendationRequest").reply(200, "RecommendationRequest with id 1 was deleted");
 
 
         render(
@@ -156,8 +156,8 @@ describe("RecommendationRequestIndexPage tests", () => {
         await waitFor(() => { expect(mockToast).toBeCalledWith("RecommendationRequest with id 1 was deleted") });
 
         await waitFor(() => { expect(axiosMock.history.delete.length).toBe(1); });
-        expect(axiosMock.history.delete[0].url).toBe("/api/recommendationrequest");
-        expect(axiosMock.history.delete[0].url).toBe("/api/recommendationrequest");
+        expect(axiosMock.history.delete[0].url).toBe("/api/RecommendationRequest");
+        expect(axiosMock.history.delete[0].url).toBe("/api/RecommendationRequest");
         expect(axiosMock.history.delete[0].params).toEqual({ id: 2 });
     });
 
