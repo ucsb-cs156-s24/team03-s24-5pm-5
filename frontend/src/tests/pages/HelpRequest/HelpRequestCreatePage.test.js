@@ -60,7 +60,7 @@ describe("HelpRequestCreatePage tests", () => {
             tableOrBreakoutRoom: "table",
             requestTime: "2022-02-02T00:00",
             explanation: "test",
-            solved: true
+            solved: "true"
         };
 
         axiosMock.onPost("/api/helprequest/post").reply( 202, helpRequest );
@@ -106,7 +106,7 @@ describe("HelpRequestCreatePage tests", () => {
             "tableOrBreakoutRoom": "table",
             "requestTime": "2022-02-02T00:00",
             "explanation": "test",
-            "solved": undefined
+            "solved": "true"
         });
 
         expect(mockToast).toBeCalledWith("New helpRequest Created - id: 17 teamId: test");

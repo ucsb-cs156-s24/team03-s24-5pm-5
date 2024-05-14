@@ -54,23 +54,18 @@ public class HelpRequestController extends ApiController {
             @Parameter(name = "requesterEmail") @RequestParam String requesterEmail,
             @Parameter(name = "teamId") @RequestParam String teamId,
             @Parameter(name = "tableOrBreakoutRoom") @RequestParam String tableOrBreakoutRoom,
+                @Parameter(name = "requestTime") @RequestParam("requestTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime,
             @Parameter(name = "explanation") @RequestParam String explanation,
-            @Parameter(name = "solved") @RequestParam boolean solved,
-            @Parameter(name = "requestTime") @RequestParam("requestTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime)
-            throws JsonProcessingException {
-
-        // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-        // See: https://www.baeldung.com/spring-date-parameters
-
-        log.info("requestTime={}", requestTime);
+                @Parameter(name = "solved") @RequestParam boolean solved)
+             {
 
         HelpRequest helpRequest = new HelpRequest();
         helpRequest.setRequesterEmail(requesterEmail);
         helpRequest.setTeamId(teamId);
         helpRequest.setTableOrBreakoutRoom(tableOrBreakoutRoom);
+        helpRequest.setRequestTime(requestTime);
         helpRequest.setExplanation(explanation);
         helpRequest.setSolved(solved);
-        helpRequest.setRequestTime(requestTime);
 
         HelpRequest savedHelpRequest = helpRequestRepository.save(helpRequest);
 
