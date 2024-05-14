@@ -28,6 +28,7 @@ export default function RecommendationRequestEditPage({storybook=false}) {
             id: request.id,
         },
         data: {
+            id: request.id,
             requesterEmail: request.requesterEmail,
             professorEmail: request.professorEmail,
             explanation: request.explanation,
