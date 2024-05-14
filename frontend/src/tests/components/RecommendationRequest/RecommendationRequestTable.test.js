@@ -119,6 +119,7 @@ describe("RecommendationRequestTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("please");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-dateRequested`)).toHaveTextContent("2022-04-02T12:00:00");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-dateNeeded`)).toHaveTextContent("2022-05-02T12:00:00");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-done`)).toHaveTextContent("No");
     // expect(screen.getByTestId(`${testId}-cell-row-1-col-done`)).toHaveTextContent("Yes");
 
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
