@@ -140,6 +140,7 @@ describe("RecommendationRequestEditPage tests", () => {
             expect(axiosMock.history.put.length).toBe(1); // times called
             expect(axiosMock.history.put[0].params).toEqual({ id: 17 });
             expect(axiosMock.history.put[0].data).toBe(JSON.stringify({
+                id: 17,
                 requesterEmail: "student1@gmail.com",
                 professorEmail: "professor1@gmail.com",
                 explanation: "please",
