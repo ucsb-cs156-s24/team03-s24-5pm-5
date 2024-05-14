@@ -45,7 +45,7 @@ describe("RecommendationRequestIndexPage tests", () => {
 
     test("Renders with Create Button for admin user", async () => {
         setupAdminUser();
-        axiosMock.onGet("/api/recommendationrequest/all").reply(200, []);
+        axiosMock.onGet("/api/RecommendationRequest/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>
