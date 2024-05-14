@@ -116,7 +116,7 @@ describe("RecommendationRequest tests", () => {
             explanation: "please",
             dateRequested: "2022-02-02T00:00",
             dateNeeded: "2022-02-02T00:00",
-            done: undefined
+            done: true
         });
 
         // assert - check that the toast was called with the expected message
