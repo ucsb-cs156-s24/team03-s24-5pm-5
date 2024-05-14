@@ -54,8 +54,8 @@ public class HelpRequestController extends ApiController {
             @Parameter(name = "requesterEmail") @RequestParam String requesterEmail,
             @Parameter(name = "teamId") @RequestParam String teamId,
             @Parameter(name = "tableOrBreakoutRoom") @RequestParam String tableOrBreakoutRoom,
+                @Parameter(name = "requestTime") @RequestParam("requestTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime,
             @Parameter(name = "explanation") @RequestParam String explanation,
-            @Parameter(name = "requestTime") @RequestParam("requestTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime,
                 @Parameter(name = "solved") @RequestParam boolean solved)
              {
 
@@ -63,8 +63,8 @@ public class HelpRequestController extends ApiController {
         helpRequest.setRequesterEmail(requesterEmail);
         helpRequest.setTeamId(teamId);
         helpRequest.setTableOrBreakoutRoom(tableOrBreakoutRoom);
-        helpRequest.setExplanation(explanation);
         helpRequest.setRequestTime(requestTime);
+        helpRequest.setExplanation(explanation);
         helpRequest.setSolved(solved);
 
         HelpRequest savedHelpRequest = helpRequestRepository.save(helpRequest);
