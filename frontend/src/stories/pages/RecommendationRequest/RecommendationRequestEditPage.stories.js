@@ -23,7 +23,7 @@ Default.parameters = {
             return res(ctx.json(systemInfoFixtures.showingNeither));
         }),
         rest.get('/api/RecommendationRequest', (_req, res, ctx) => {
-            return res(ctx.json(recommendationRequestFixtures.threeRestaurants[0]));
+            return res(ctx.json(recommendationRequestFixtures.oneRecommendationRequest[0]));
         }),
         rest.put('/api/RecommendationRequest', async (req, res, ctx) => {
             var reqBody = await req.text();
