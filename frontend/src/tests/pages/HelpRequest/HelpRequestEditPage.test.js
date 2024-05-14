@@ -222,7 +222,7 @@ describe("HelpRequestEditPage tests", () => {
           tableOrBreakoutRoom: "table",
           requestTime: "2022-02-02T00:00",
           explanation: "test",
-          solved: true,
+          solved: "true",
         })
       ); // posted object
     });
