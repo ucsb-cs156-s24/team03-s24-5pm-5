@@ -63,13 +63,14 @@ export default function AppNavbar({
               <>
                 <Nav.Link as={Link} to="/restaurants">Restaurants</Nav.Link>
                 <Nav.Link as={Link} to="/ucsbdates">UCSB Dates</Nav.Link>
-                <Nav.Link as={Link} to="/helprequest">Help Request</Nav.Link>
-                <Nav.Link as={Link} to="/articles">Articles</Nav.Link>
                 <Nav.Link as={Link} to="/ucsborganization">UCSB Organization</Nav.Link>
-                <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
-                <Nav.Link as={Link} to="/diningcommonsmenuitems">UCSB Dining</Nav.Link>
-                <Nav.Link as={Link} to="/RecommendationRequest">RecommendationRequest</Nav.Link>
+                <Nav.Link as={Link} to="/helprequest">Help Request</Nav.Link>
+                <Nav.Link as={Link} to="/diningcommonsmenuitems">Menu Item</Nav.Link>
                 <Nav.Link as={Link} to="/menuitemreview">Menu Item Review</Nav.Link>
+                <Nav.Link as={Link} to="/menuitemreview">Menu Item Review</Nav.Link>
+                <Nav.Link as={Link} to="/RecommendationRequest">RecommendationRequest</Nav.Link>
+                <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
+                <Nav.Link as={Link} to="/articles">Articles</Nav.Link>
               </>
             )}
             <Nav className="ml-auto">
