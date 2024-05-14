@@ -58,7 +58,7 @@ describe("RecommendationRequestEditPage tests", () => {
                     </MemoryRouter>
                 </QueryClientProvider>
             );
-            await screen.findByText("Edit RecommendationRequestt");
+            await screen.findByText("Edit RecommendationRequest");
             expect(screen.queryByTestId("RecommendationRequest-requesterEmail")).not.toBeInTheDocument();
             restoreConsole();
         });
