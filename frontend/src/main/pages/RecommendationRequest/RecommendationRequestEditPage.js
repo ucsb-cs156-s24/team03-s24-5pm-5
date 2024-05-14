@@ -14,7 +14,7 @@ export default function RecommendationRequestEditPage({storybook=false}) {
             [`/api/RecommendationRequest?id=${id}`],
             {  // Stryker disable next-line all : GET is the default, so mutating this to "" doesn't introduce a bug
                 method: "GET",
-                url: `/api/rRecommendationRequest`,
+                url: `/api/RecommendationRequest`,
                 params: {
                     id
                 }
