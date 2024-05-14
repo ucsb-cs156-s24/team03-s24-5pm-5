@@ -111,7 +111,7 @@ public class HelpRequestIT {
 
         LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
 
-        HelpRequest ucsbDate1 = HelpRequest.builder()
+        HelpRequest helpRequest1 = HelpRequest.builder()
             .requesterEmail("test")
             .teamId("teamIdentifier")
             .tableOrBreakoutRoom("table")
@@ -119,8 +119,6 @@ public class HelpRequestIT {
             .explanation("something")
             .solved(true)
             .build();
-
-        when(helpRequestRepository.save(eq(ucsbDate1))).thenReturn(ucsbDate1);
 
         // act
         MvcResult response = mockMvc.perform(
@@ -131,8 +129,7 @@ public class HelpRequestIT {
             .andReturn();
 
         // assert
-        verify(helpRequestRepository, times(1)).save(ucsbDate1);
-        String expectedJson = mapper.writeValueAsString(ucsbDate1);
+        String expectedJson = mapper.writeValueAsString(helpRequest1);
         String responseString = response.getResponse().getContentAsString();
         assertEquals(expectedJson, responseString);
     }
