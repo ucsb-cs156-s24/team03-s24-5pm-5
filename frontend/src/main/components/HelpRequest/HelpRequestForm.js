@@ -147,7 +147,7 @@ function HelpRequestForm({
             <Form.Select
               data-testid={"HelpRequestForm-solved"}
               id="solved"
-              isInvalid={Boolean(errors.done)}
+                        {...register("solved")}
             >
               <option value="true">true</option>
               <option value="false">false</option>
