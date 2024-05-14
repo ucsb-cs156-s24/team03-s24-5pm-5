@@ -56,7 +56,7 @@ public class HelpRequestController extends ApiController {
             @Parameter(name = "tableOrBreakoutRoom") @RequestParam String tableOrBreakoutRoom,
             @Parameter(name = "explanation") @RequestParam String explanation,
             @Parameter(name = "requestTime") @RequestParam("requestTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime,
-        @Parameter(name = "solved") @RequestParam boolean solved
+                @Parameter(name = "solved") @RequestParam boolean solved)
              {
 
         // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
