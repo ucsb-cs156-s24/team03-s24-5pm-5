@@ -59,16 +59,13 @@ public class HelpRequestController extends ApiController {
                 @Parameter(name = "solved") @RequestParam boolean solved)
              {
 
-        // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-        // See: https://www.baeldung.com/spring-date-parameters
-
         HelpRequest helpRequest = new HelpRequest();
         helpRequest.setRequesterEmail(requesterEmail);
         helpRequest.setTeamId(teamId);
         helpRequest.setTableOrBreakoutRoom(tableOrBreakoutRoom);
         helpRequest.setExplanation(explanation);
-        helpRequest.setSolved(solved);
         helpRequest.setRequestTime(requestTime);
+        helpRequest.setSolved(solved);
 
         HelpRequest savedHelpRequest = helpRequestRepository.save(helpRequest);
 
