@@ -11,10 +11,10 @@ export default function RecommendationRequestEditPage({storybook=false}) {
     const { data: request, _error, _status } =
         useBackend(
             // Stryker disable next-line all : don't test internal caching of React Query
-            [`/api/recommendationrequest?id=${id}`],
+            [`/api/RecommendationRequest?id=${id}`],
             {  // Stryker disable next-line all : GET is the default, so mutating this to "" doesn't introduce a bug
                 method: "GET",
-                url: `/api/recommendationrequest`,
+                url: `/api/RecommendationRequest`,
                 params: {
                     id
                 }
@@ -22,7 +22,7 @@ export default function RecommendationRequestEditPage({storybook=false}) {
         );
 
     const objectToAxiosPutParams = (request) => ({
-        url: "/api/recommendationrequest",
+        url: "/api/RecommendationRequest",
         method: "PUT",
         params: {
             id: request.id,
@@ -45,7 +45,7 @@ export default function RecommendationRequestEditPage({storybook=false}) {
         objectToAxiosPutParams,
         { onSuccess },
         // Stryker disable next-line all : hard to set up test for caching
-        [`/api/recommendationrequest?id=${id}`]
+        [`/api/RecommendationRequest?id=${id}`]
     );
 
     const { isSuccess } = mutation
@@ -55,13 +55,13 @@ export default function RecommendationRequestEditPage({storybook=false}) {
     }
 
     if (isSuccess && !storybook) {
-        return <Navigate to="/recommendationrequest" />
+        return <Navigate to="/RecommendationRequest" />
     }
 
     return (
         <BasicLayout>
             <div className="pt-2">
-                <h1>Edit RecommendationRequestt</h1>
+                <h1>Edit RecommendationRequest</h1>
                 {
                     request && <RecommendationRequestForm submitAction={onSubmit} buttonLabel={"Update"} initialContents={request} />
                 }

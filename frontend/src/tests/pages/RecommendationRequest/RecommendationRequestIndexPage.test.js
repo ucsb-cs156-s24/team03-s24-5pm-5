@@ -45,7 +45,7 @@ describe("RecommendationRequestIndexPage tests", () => {
 
     test("Renders with Create Button for admin user", async () => {
         setupAdminUser();
-        axiosMock.onGet("/api/recommendationrequest/all").reply(200, []);
+        axiosMock.onGet("/api/RecommendationRequest/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -59,7 +59,7 @@ describe("RecommendationRequestIndexPage tests", () => {
             expect(screen.getByText(/Create RecommendationRequest/)).toBeInTheDocument();
         });
         const button = screen.getByText(/Create RecommendationRequest/);
-        expect(button).toHaveAttribute("href", "/recommendationrequest/create");
+        expect(button).toHaveAttribute("href", "/RecommendationRequest/create");
         expect(button).toHaveAttribute("style", "float: right;");
     });
 
