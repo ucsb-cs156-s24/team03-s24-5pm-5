@@ -63,7 +63,7 @@ public class RecommendationRequestIT {
                 // arrange
                 LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
                 RecommendationRequest recommendationRequest = RecommendationRequest.builder()
-                                .id(0)
+                                .id(1)
                                 .requesterEmail("a")
                                 .professorEmail("b")
                                 .explanation("c")
@@ -90,7 +90,7 @@ public class RecommendationRequestIT {
                 // arrange
                 LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
                 RecommendationRequest recommendationRequest1 = RecommendationRequest.builder()
-                                .id(0)
+                                .id(1)
                                 .requesterEmail("a")
                                 .professorEmail("b")
                                 .explanation("c")

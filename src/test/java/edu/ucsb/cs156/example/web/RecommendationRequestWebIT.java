@@ -21,8 +21,7 @@ public class RecommendationRequestWebIT extends WebTestCase {
     public void admin_user_can_create_edit_delete_RecommendationRequest() throws Exception {
         setupUser(true);
 
-        page.getByText("RecommendationRequest").click();
-
+        page.getByText("Recommendation Request").click();
         page.getByText("Create RecommendationRequest").click();
         assertThat(page.getByText("Create New RecommendationRequest")).isVisible();
         page.getByTestId("RecommendationRequestForm-requesterEmail").fill("a");
@@ -30,7 +29,6 @@ public class RecommendationRequestWebIT extends WebTestCase {
         page.getByTestId("RecommendationRequestForm-explanation").fill("c");
         page.getByTestId("RecommendationRequestForm-dateRequested").fill("2024-05-03T00:12");
         page.getByTestId("RecommendationRequestForm-dateNeeded").fill("2024-05-03T00:12");
-        page.getByTestId("RecommendationRequestForm-done").fill("true");
         // page.getByLabel("dateAdded").fill("2024-05-03T00:12");
         page.getByTestId("RecommendationRequestForm-submit").click();
 
@@ -50,10 +48,10 @@ public class RecommendationRequestWebIT extends WebTestCase {
     }
 
     @Test
-    public void regular_user_cannot_create_restaurant() throws Exception {
+    public void regular_user_cannot_create_RecommendationRequest() throws Exception {
         setupUser(false);
 
-        page.getByText("RecommendationRequest").click();
+        page.getByText("Recommendation Request").click();
 
         assertThat(page.getByText("Create RecommendationRequest")).not().isVisible();
         assertThat(page.getByTestId("RecommendationRequestform-cell-row-0-col-title")).not().isVisible();
