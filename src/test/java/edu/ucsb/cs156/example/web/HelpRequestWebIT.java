@@ -33,7 +33,7 @@ public class HelpRequestWebIT extends WebTestCase {
         page.getByTestId("HelpRequestForm-requestTime").fill("2022-01-02T12:00");
         page.getByTestId("HelpRequestForm-explanation").fill("please");
         page.getByTestId("HelpRequestForm-solved").fill("true");
-        page.getByTestId("RestaurantForm-submit").click();
+        page.getByTestId("HelpRequestForm-submit").click();
 
         assertThat(page.getByTestId("HelpRequestTable-cell-row-0-col-teamId"))
                 .hasText("team01");
